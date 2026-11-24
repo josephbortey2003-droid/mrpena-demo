@@ -44,7 +44,7 @@ h1, h2, h3 { margin: 0; line-height: 1.08; font-weight: 800; letter-spacing: -.0
 header.top { position: sticky; top: 0; z-index: 40; background: #fff; border-bottom: 3px solid var(--navy); }
 header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 8px; }
 .brand { display: flex; align-items: center; gap: 8px; text-decoration: none; }
-.brand img { width: 52px; height: auto; }
+.brand img { width: 40px; height: 47px; }
 .brand b { display: block; font: 400 30px/1 var(--script); color: var(--red); }
 .brand small { display: block; font: 700 11.5px/1.2 var(--body); color: var(--navy); letter-spacing: .08em; text-transform: uppercase; }
 .top nav { display: flex; align-items: center; gap: 22px; font: 600 15.5px/1 var(--body); }
@@ -66,6 +66,10 @@ header.top .wrap { display: flex; align-items: center; justify-content: space-be
 
 /* hero: van livery */
 .hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; padding-block: 44px 34px; }
+.namerow { display: flex; align-items: flex-end; gap: 14px; }
+.namerow .mascot { width: clamp(96px, 11vw, 150px); height: auto; flex: none; }
+.say { display: inline-block; position: relative; font: 400 22px/1 var(--script); color: var(--navy); background: #fff; border: 3px solid var(--navy); border-radius: 22px; padding: 8px 16px; margin-bottom: 6px; }
+.say::after { content: ""; position: absolute; left: -12px; bottom: 6px; border: 8px solid transparent; border-right-color: var(--navy); }
 .hero .script { font: 400 clamp(56px, 7vw, 96px)/1 var(--script); color: var(--red); display: block; }
 .hero h1 { font-size: clamp(30px, 3.6vw, 46px); color: var(--navy); text-transform: uppercase; margin: 6px 0 16px; }
 .hero p { margin: 0 0 24px; font-size: 19px; color: var(--mute); max-width: 44ch; }
@@ -169,8 +173,9 @@ footer b { display: block; font: 400 34px/1 var(--script); color: #fff; margin-b
   .story img { max-width: 380px; }
 }
 @media (max-width: 640px) {
-  .brand img { width: 40px; } .brand b { font-size: 24px; } .brand small { display: none; }
+  .brand img { width: 32px; height: 38px; } .brand b { font-size: 24px; } .brand small { display: none; }
   .hero h1 { font-size: 28px; }
+  .hero .script { font-size: 50px; white-space: nowrap; } .namerow .mascot { width: 84px; } .say { font-size: 19px; }
   .hero p { font-size: 17.5px; }
   .ctas .btn { flex: 1 1 100%; }
   .bubble { left: 8px; top: -14px; font-size: 21px; padding: 10px 14px; }
@@ -198,7 +203,7 @@ footer b { display: block; font: 400 34px/1 var(--script); color: #fff; margin-b
 <div class="emerg"><div class="wrap"><span data-es="Emergencias por daños de agua 24/7">24/7 emergency water damage</span><a href="tel:+19787949485">(978) 794-9485</a><span>Hablamos español</span></div></div>
 
 <header class="top"><div class="wrap">
-  <a class="brand" href="#top" aria-label="Mr. Peña's Services home"><span><b>Mr. Peña's</b><small data-es="Limpieza de alfombras y muebles">Carpet &amp; upholstery cleaning</small></span></a>
+  <a class="brand" href="#top" aria-label="Mr. Peña's Services home"><img src="img/mascot.svg" alt="" width="40" height="47"><span><b>Mr. Peña's</b><small data-es="Limpieza de alfombras y muebles">Carpet &amp; upholstery cleaning</small></span></a>
   <nav aria-label="Primary"><a href="#services" data-es="Servicios">Services</a><a href="#work" data-es="Trabajos">Our work</a><a href="#reviews" data-es="Reseñas">Reviews</a><a class="btn" href="#quote" data-es="Cotización gratis">Free quote</a></nav>
   <div class="right">
     <div class="lang" role="group" aria-label="Language / Idioma"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="es" aria-pressed="false">ES</button></div>
@@ -210,13 +215,13 @@ footer b { display: block; font: 400 34px/1 var(--script); color: #fff; margin-b
 
 <div class="hero" id="top"><div class="wrap">
   <div>
-    <span class="script rv">Mr. Peña's</span>
+    <div class="namerow rv"><img class="mascot" src="img/mascot.svg" alt="Mr. Peña's mascot waving" width="150" height="176"><div><span class="say">Yes I can!</span><span class="script">Mr. Peña's</span></div></div>
     <h1 class="rv" data-es="Limpieza de alfombras y muebles en Lawrence">Carpet &amp; upholstery cleaning in Lawrence</h1>
     <p class="rv" data-es="Alfombras, sofás, azulejos y lechada, ventanas y lavado a presión, para casas y negocios. Y si se le inunda algo, respondemos 24/7.">Carpets, sofas, tile and grout, windows and pressure washing, for homes and businesses. And if something floods, we answer 24/7.</p>
     <div class="ctas rv"><a class="btn" href="#quote"><svg aria-hidden="true"><use href="#wa"/></svg><span data-es="Cotización gratis por WhatsApp">Free quote on WhatsApp</span></a><a class="btn line" href="tel:+19787949485"><svg aria-hidden="true"><use href="#ph"/></svg>(978) 794-9485</a></div>
     <div class="trust rv"><span><b>★ 4.9</b> · <span data-es="46 reseñas en Google">46 Google reviews</span></span><span data-es="Totalmente asegurado">Fully insured</span><span data-es="Residencial y comercial">Residential &amp; commercial</span></div>
   </div>
-  <div class="vanpic rv"><img src="img/van.webp" alt="Mr. Peña's Services van with its truck-mounted cleaning machine" width="1100" height="953"><span class="bubble" aria-hidden="true">Yes I can!</span></div>
+  <div class="vanpic rv"><img src="img/van.webp" alt="Mr. Peña's Services van with its truck-mounted cleaning machine" width="1100" height="953"></div>
 </div></div>
 <div class="band" aria-label="Services"><div class="wrap"><span data-es="Alfombras">Carpet</span><span data-es="Muebles">Upholstery</span><span data-es="Limpieza general">General cleaning</span><span data-es="Azulejo y lechada">Tile &amp; grout</span><span data-es="Ventanas">Windows</span><span data-es="Lavado a presión">Pressure washing</span></div></div>
 

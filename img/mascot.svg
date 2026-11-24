@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="160 25 370 435" fill="none" stroke="#1d3b8a" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Mr. Peña's "Yes I can!" mascot, redrawn as a clean vector from the van livery -->
+  <!-- cap: crown, back peak, band, front brim -->
+  <path d="M296 104 C300 70 330 44 380 38 C430 33 478 44 496 70 C500 80 500 88 494 94"/>
+  <path d="M346 46 C340 60 340 76 346 86" stroke-width="4"/>
+  <path d="M300 104 C350 86 420 80 494 94 L512 116 C496 112 480 110 466 110"/>
+  <!-- head -->
+  <path d="M300 104 C276 132 282 196 330 224 C374 250 446 238 482 196 C504 170 506 136 494 96"/>
+  <!-- ear -->
+  <path d="M296 112 C266 112 254 140 272 156 C282 164 292 160 298 152"/>
+  <!-- eyes -->
+  <ellipse cx="352" cy="128" rx="9" ry="15" fill="#1d3b8a" stroke="none" transform="rotate(-8 352 128)"/>
+  <ellipse cx="440" cy="154" rx="9" ry="15" fill="#1d3b8a" stroke="none" transform="rotate(-8 440 154)"/>
+  <!-- brows -->
+  <path d="M338 102 C346 98 356 98 364 102" stroke-width="3.5"/>
+  <path d="M428 126 C436 122 446 124 452 130" stroke-width="3.5"/>
+  <!-- nose -->
+  <path d="M384 150 C390 158 400 158 404 150" stroke-width="3.5"/>
+  <!-- big open smile: navy mouth with white teeth band -->
+  <path d="M314 160 C320 196 360 214 400 208 C420 205 432 198 434 190 C396 186 352 176 314 160 Z" fill="#1d3b8a"/>
+  <path d="M320 168 C356 180 396 186 430 190" stroke="#fff" stroke-width="5"/>
+  <!-- neck + collar -->
+  <path d="M312 226 C318 236 326 240 334 238 C340 248 352 250 360 244" stroke-width="4.5"/>
+  <!-- left arm: hand on hip, elbow out (filled sleeve) -->
+  <path d="M312 232 C276 214 218 212 196 230 C184 242 192 262 214 270 C224 274 234 270 240 262 C232 254 230 244 240 240 C260 236 282 248 296 262 C304 252 310 242 312 232 Z" fill="#1d3b8a"/>
+  <!-- hand on hip (white with outline) -->
+  <path d="M214 270 C222 282 236 288 248 284 C256 280 256 270 248 264" stroke-width="4"/>
+  <!-- right arm: presenting (filled sleeve) -->
+  <path d="M358 244 C392 258 436 278 466 298 C462 306 456 310 448 308 C420 294 388 280 362 272 Z" fill="#1d3b8a"/>
+  <!-- open hand -->
+  <path d="M466 298 C478 292 492 290 502 296 M470 304 C482 304 496 306 508 312 C500 316 488 316 478 314 M474 310 C482 318 492 322 500 322" stroke-width="3.5"/>
+  <!-- body / overalls, slightly leaning -->
+  <path d="M296 262 C286 310 274 370 262 430"/>
+  <path d="M362 272 C364 330 368 390 372 436"/>
+  <!-- legs -->
+  <path d="M314 340 C306 370 300 400 296 432"/>
+  <path d="M314 340 C324 370 334 404 340 436"/>
+  <!-- shoes -->
+  <path d="M262 430 C250 432 240 436 240 442 C252 446 282 446 296 442 C298 438 298 434 296 432 Z" fill="#1d3b8a"/>
+  <path d="M340 436 C340 442 342 446 348 447 C366 450 392 449 400 443 C396 437 386 435 372 436 Z" fill="#1d3b8a"/>
+</svg>
