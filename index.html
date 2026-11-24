@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Mr. Peña's Services | Carpet &amp; Upholstery Cleaning in Lawrence, MA · Hablamos español</title>
+<meta name="description" content="Mr. Peña's Services, Lawrence MA. Carpet, upholstery, tile and grout cleaning, window cleaning, pressure washing and 24/7 emergency water damage restoration. Residential and commercial, fully insured. 4.9 stars from 46 Google reviews. Hablamos español.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&family=Rubik:wght@400;500;600;700;800&display=swap">
+<style>
+/* Mr. Peña's — brand taken straight from HIS VAN: red script "MR. PEÑA'S", navy band of services, white body,
+   "Yes I can!" mascot, "Residential & Commercial · Full insurance · Hablamos español", "24/7 emergency water damage".
+   Shabby2Shine (Framer cleaning): Residential / Commercial toggle that switches services + photos.
+   Hero quote = his best review (the couch nobody else would take on). Truck-mounted equipment shown. EN/ES. */
+:root {
+  --red: #d7262f; --red-d: #b01b23; --navy: #1d3b8a; --navy-d: #142a63; --sky: #eaf0fb; --paper: #fff;
+  --ink: #18213a; --mute: #59627a; --line: #e2e7f1; --sun: #ffd24a;
+  --script: "Lobster", Georgia, cursive; --body: "Rubik", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { overflow-x: clip; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17.5px/1.6 var(--body); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+section[id] { scroll-margin-top: 80px; }
+.wrap { max-width: 1200px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { margin: 0; line-height: 1.08; font-weight: 800; letter-spacing: -.01em; }
+.demo { background: var(--navy-d); color: #cdd8f3; font-size: 13px; text-align: center; padding: 7px 12px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; font: 700 16px/1 var(--body); padding: 16px 24px; border-radius: 999px; background: var(--red); color: #fff; text-decoration: none; border: 0; cursor: pointer; transition: background .15s, transform .15s; }
+.btn:hover { background: var(--red-d); transform: translateY(-2px); }
+.btn.navy { background: var(--navy); } .btn.navy:hover { background: var(--navy-d); }
+.btn.line { background: #fff; color: var(--navy); border: 2px solid var(--navy); }
+.btn svg { width: 19px; height: 19px; }
+.kick { display: block; font: 700 13.5px/1.2 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
+
+.emerg { background: var(--red); color: #fff; font: 600 15px/1.3 var(--body); }
+.emerg .wrap { display: flex; justify-content: center; gap: 14px; padding-block: 8px; flex-wrap: wrap; text-align: center; }
+.emerg a { color: #fff; font-weight: 800; }
+
+header.top { position: sticky; top: 0; z-index: 40; background: #fff; border-bottom: 3px solid var(--navy); }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 8px; }
+.brand { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+.brand img { width: 52px; height: auto; }
+.brand b { display: block; font: 400 30px/1 var(--script); color: var(--red); }
+.brand small { display: block; font: 700 11.5px/1.2 var(--body); color: var(--navy); letter-spacing: .08em; text-transform: uppercase; }
+.top nav { display: flex; align-items: center; gap: 22px; font: 600 15.5px/1 var(--body); }
+.top nav a:not(.btn) { text-decoration: none; color: var(--navy); }
+.top nav a:not(.btn):hover { color: var(--red); }
+.top nav .btn { padding: 12px 18px; font-size: 15px; }
+.right { display: flex; align-items: center; gap: 8px; }
+.lang { display: inline-flex; border: 2px solid var(--line); border-radius: 999px; overflow: hidden; }
+.lang button { font: 700 13px/1 var(--body); padding: 8px 10px; border: 0; background: #fff; color: var(--mute); cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--navy); color: #fff; }
+.menu-btn { display: none; background: var(--sky); border: 0; border-radius: 999px; padding: 11px 13px; font: 700 14px/1 var(--body); color: var(--navy); cursor: pointer; align-items: center; gap: 8px; }
+.menu-btn i { display: grid; gap: 4px; } .menu-btn i b { display: block; width: 16px; height: 2px; background: var(--navy); }
+.drop { display: none; position: fixed; left: 12px; right: 12px; z-index: 45; background: #fff; border-radius: 18px; box-shadow: 0 24px 50px rgba(20,42,99,.25); overflow: hidden; }
+.drop.open { display: block; }
+.drop a { display: block; padding: 16px 22px; font: 700 20px/1 var(--body); text-decoration: none; border-top: 1px solid var(--line); color: var(--navy); }
+.drop a:first-child { border-top: 0; }
+.scrim { display: none; position: fixed; inset: 0; z-index: 35; background: rgba(20,42,99,.35); }
+.scrim.open { display: block; }
+
+/* hero: van livery */
+.hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; padding-block: 44px 34px; }
+.hero .script { font: 400 clamp(56px, 7vw, 96px)/1 var(--script); color: var(--red); display: block; }
+.hero h1 { font-size: clamp(30px, 3.6vw, 46px); color: var(--navy); text-transform: uppercase; margin: 6px 0 16px; }
+.hero p { margin: 0 0 24px; font-size: 19px; color: var(--mute); max-width: 44ch; }
+.ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+.trust { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.trust span { font: 600 14.5px/1 var(--body); padding: 9px 13px; border-radius: 999px; background: var(--sky); color: var(--navy); }
+.trust b { color: var(--red); }
+.vanpic { position: relative; }
+.vanpic img { width: 100%; border-radius: 22px; box-shadow: 0 24px 50px rgba(20,42,99,.2); aspect-ratio: 1100 / 953; object-fit: cover; }
+.bubble { position: absolute; left: -16px; top: -16px; background: #fff; border: 3px solid var(--navy); border-radius: 50% 50% 50% 8px; padding: 14px 18px; font: 400 26px/1 var(--script); color: var(--navy); box-shadow: 0 10px 22px rgba(0,0,0,.12); transform: rotate(-6deg); }
+.band { background: var(--navy); color: #fff; }
+.band .wrap { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 22px; padding-block: 14px; font: 700 15px/1.3 var(--body); letter-spacing: .06em; text-transform: uppercase; text-align: center; }
+.band span::after { content: "·"; margin-left: 22px; color: var(--sun); }
+.band span:last-child::after { content: ""; margin: 0; }
+
+section { padding-block: clamp(60px, 7.5vw, 96px); }
+.sh { max-width: 700px; margin-bottom: 30px; }
+.sh h2 { font-size: clamp(34px, 4.4vw, 52px); color: var(--navy); }
+.sh p { color: var(--mute); margin: 10px 0 0; font-size: 18px; }
+
+/* Shabby2Shine residential / commercial toggle */
+.toggle { display: inline-flex; background: var(--sky); border-radius: 999px; padding: 5px; margin-bottom: 26px; }
+.toggle button { font: 700 16px/1 var(--body); padding: 13px 22px; border-radius: 999px; border: 0; background: transparent; color: var(--navy); cursor: pointer; }
+.toggle button[aria-pressed="true"] { background: var(--navy); color: #fff; }
+.svc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.svc { border: 2px solid var(--line); border-radius: 20px; overflow: hidden; background: #fff; min-width: 0; display: flex; flex-direction: column; }
+.svc img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.svc .ic { width: 100%; aspect-ratio: 4 / 3; display: grid; place-items: center; background: linear-gradient(135deg, var(--sky), #fff); font-size: 54px; }
+.svc div.t { padding: 16px 18px 18px; }
+.svc h3 { font-size: 21px; color: var(--navy); }
+.svc p { margin: 6px 0 0; color: var(--mute); font-size: 15.5px; }
+.svc[hidden] { display: none; }
+
+/* story quote */
+.story { background: var(--sky); }
+.story .grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 40px; align-items: center; }
+.story img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 22px; }
+.story blockquote { margin: 0; font: 500 clamp(22px, 2.4vw, 30px)/1.4 var(--body); color: var(--navy); }
+.story blockquote::before { content: "“"; display: block; font: 400 90px/0.6 var(--script); color: var(--red); margin-bottom: 10px; }
+.story cite { display: block; margin-top: 16px; font: 600 15px/1 var(--body); font-style: normal; color: var(--mute); }
+.mini { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 24px; }
+.mini p { margin: 0; background: #fff; border-radius: 16px; padding: 16px; font-size: 15.5px; }
+.mini p b { color: var(--red); letter-spacing: 2px; display: block; margin-bottom: 4px; }
+
+/* gallery */
+.gal { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.gal figure { margin: 0; position: relative; border-radius: 16px; overflow: hidden; min-width: 0; }
+.gal img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+.gal figcaption { position: absolute; left: 8px; bottom: 8px; background: rgba(255,255,255,.94); color: var(--navy); font: 700 13px/1 var(--body); padding: 7px 10px; border-radius: 999px; }
+
+/* equipment + water damage */
+.gear .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.gear img { width: 100%; border-radius: 22px; aspect-ratio: 630 / 654; object-fit: cover; }
+.gear h2 { font-size: clamp(32px, 4vw, 48px); color: var(--navy); margin-bottom: 14px; }
+.gear p { color: var(--mute); }
+.flood { background: var(--navy); color: #fff; }
+.flood .wrap { display: grid; grid-template-columns: 1.2fr .8fr; gap: 30px; align-items: center; }
+.flood h2 { font-size: clamp(32px, 4.2vw, 50px); }
+.flood h2 span { color: var(--sun); }
+.flood p { color: #cdd8f3; font-size: 18px; margin: 12px 0 0; }
+
+/* quote form */
+.quote .grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 44px; align-items: start; }
+.quote h2 { font-size: clamp(34px, 4.4vw, 52px); color: var(--navy); margin-bottom: 12px; }
+.quote .side p { color: var(--mute); }
+.addr { margin-top: 20px; display: grid; gap: 8px; }
+.addr a { color: var(--navy); font-weight: 700; }
+.map { margin-top: 18px; border-radius: 18px; overflow: hidden; aspect-ratio: 16 / 10; background: var(--sky); }
+.map iframe { width: 100%; height: 100%; border: 0; display: block; }
+form.card { background: #fff; border: 2px solid var(--line); border-radius: 22px; padding: 26px; min-width: 0; box-shadow: 0 20px 40px rgba(20,42,99,.08); }
+.f { display: grid; gap: 7px; font: 600 15px/1.2 var(--body); margin-bottom: 15px; min-width: 0; }
+.f input, .f select, .f textarea { font: 400 17px/1.4 var(--body); padding: 13px 14px; border: 2px solid #d5dcea; border-radius: 12px; background: #fbfcff; color: var(--ink); width: 100%; }
+.f textarea { min-height: 84px; resize: vertical; }
+.f input:focus, .f select:focus, .f textarea:focus { outline: 2px solid var(--navy); border-color: var(--navy); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips label { position: relative; }
+.chips input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.chips span { display: inline-block; padding: 10px 13px; border-radius: 999px; border: 2px solid #d5dcea; font: 600 14.5px/1 var(--body); background: #fbfcff; }
+.chips input:checked + span { background: var(--red); border-color: var(--red); color: #fff; }
+.chips input:focus-visible + span { outline: 3px solid var(--navy); outline-offset: 2px; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.err { display: none; color: #b3261e; font: 700 15px/1.4 var(--body); margin: -4px 0 12px; }
+.err.show { display: block; }
+.fine { font-size: 14px; color: var(--mute); margin: 12px 0 0; }
+
+footer { background: var(--navy-d); color: #c3cfe9; padding-block: 34px 110px; text-align: center; font-size: 15.5px; }
+footer b { display: block; font: 400 34px/1 var(--script); color: #fff; margin-bottom: 8px; }
+.dock { position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 30; display: none; gap: 8px; }
+.dock a { flex: 1; display: flex; align-items: center; justify-content: center; text-decoration: none; font: 700 16px/1 var(--body); padding: 16px 10px; border-radius: 999px; box-shadow: 0 10px 24px rgba(20,42,99,.3); }
+.dock .call { background: var(--navy); color: #fff; }
+.dock .bk { background: var(--red); color: #fff; }
+.rv { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+.rv.in { opacity: 1; transform: none; }
+
+@media (max-width: 1000px) {
+  .top nav { display: none; } .menu-btn { display: inline-flex; }
+  .hero .wrap, .story .grid, .gear .grid, .flood .wrap, .quote .grid { grid-template-columns: minmax(0, 1fr); }
+  .vanpic { max-width: 560px; }
+  .svc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gal { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .story img { max-width: 380px; }
+}
+@media (max-width: 640px) {
+  .brand img { width: 40px; } .brand b { font-size: 24px; } .brand small { display: none; }
+  .hero h1 { font-size: 28px; }
+  .hero p { font-size: 17.5px; }
+  .ctas .btn { flex: 1 1 100%; }
+  .bubble { left: 8px; top: -14px; font-size: 21px; padding: 10px 14px; }
+  .svc-grid { gap: 10px; } .svc div.t { padding: 12px; } .svc h3 { font-size: 17px; } .svc p { font-size: 14px; }
+  .gal { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .mini { grid-template-columns: minmax(0, 1fr); }
+  .toggle button { padding: 12px 16px; font-size: 15px; }
+  .two { grid-template-columns: 1fr; gap: 0; }
+  form.card { padding: 20px 16px; }
+  .dock { display: flex; }
+}
+@media (max-width: 380px) { .menu-btn span { display: none; } .lang button { padding: 8px 8px; } .brand b { font-size: 21px; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } .rv { opacity: 1; transform: none; } html { scroll-behavior: auto; } }
+</style>
+<style>body{margin:0}</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 000-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.1 5.1 0 001.1 2.7 11.7 11.7 0 004.5 4c1.7.7 2.3.7 3.1.6a2.7 2.7 0 001.8-1.3 2.2 2.2 0 00.2-1.3c-.1-.1-.3-.2-.5-.3z"/></symbol>
+  <symbol id="ph" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z"/></symbol>
+</defs></svg>
+
+<div class="demo" data-es="Sitio web de muestra hecho para Mr. Peña's Services.">Demo website made for Mr. Peña's Services.</div>
+<div class="emerg"><div class="wrap"><span data-es="Emergencias por daños de agua 24/7">24/7 emergency water damage</span><a href="tel:+19787949485">(978) 794-9485</a><span>Hablamos español</span></div></div>
+
+<header class="top"><div class="wrap">
+  <a class="brand" href="#top" aria-label="Mr. Peña's Services home"><span><b>Mr. Peña's</b><small data-es="Limpieza de alfombras y muebles">Carpet &amp; upholstery cleaning</small></span></a>
+  <nav aria-label="Primary"><a href="#services" data-es="Servicios">Services</a><a href="#work" data-es="Trabajos">Our work</a><a href="#reviews" data-es="Reseñas">Reviews</a><a class="btn" href="#quote" data-es="Cotización gratis">Free quote</a></nav>
+  <div class="right">
+    <div class="lang" role="group" aria-label="Language / Idioma"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="es" aria-pressed="false">ES</button></div>
+    <button class="menu-btn" type="button" id="menuBtn" aria-expanded="false" aria-controls="drop"><i><b></b><b></b><b></b></i><span data-es="Menú">Menu</span></button>
+  </div>
+</div></header>
+<div class="scrim" id="scrim"></div>
+<nav class="drop" id="drop" aria-label="Menu"><a href="#quote" data-es="Cotización gratis">Free quote</a><a href="#services" data-es="Servicios">Services</a><a href="#work" data-es="Trabajos">Our work</a><a href="#reviews" data-es="Reseñas">Reviews</a></nav>
+
+<div class="hero" id="top"><div class="wrap">
+  <div>
+    <span class="script rv">Mr. Peña's</span>
+    <h1 class="rv" data-es="Limpieza de alfombras y muebles en Lawrence">Carpet &amp; upholstery cleaning in Lawrence</h1>
+    <p class="rv" data-es="Alfombras, sofás, azulejos y lechada, ventanas y lavado a presión, para casas y negocios. Y si se le inunda algo, respondemos 24/7.">Carpets, sofas, tile and grout, windows and pressure washing, for homes and businesses. And if something floods, we answer 24/7.</p>
+    <div class="ctas rv"><a class="btn" href="#quote"><svg aria-hidden="true"><use href="#wa"/></svg><span data-es="Cotización gratis por WhatsApp">Free quote on WhatsApp</span></a><a class="btn line" href="tel:+19787949485"><svg aria-hidden="true"><use href="#ph"/></svg>(978) 794-9485</a></div>
+    <div class="trust rv"><span><b>★ 4.9</b> · <span data-es="46 reseñas en Google">46 Google reviews</span></span><span data-es="Totalmente asegurado">Fully insured</span><span data-es="Residencial y comercial">Residential &amp; commercial</span></div>
+  </div>
+  <div class="vanpic rv"><img src="img/van.webp" alt="Mr. Peña's Services van with its truck-mounted cleaning machine" width="1100" height="953"><span class="bubble" aria-hidden="true">Yes I can!</span></div>
+</div></div>
+<div class="band" aria-label="Services"><div class="wrap"><span data-es="Alfombras">Carpet</span><span data-es="Muebles">Upholstery</span><span data-es="Limpieza general">General cleaning</span><span data-es="Azulejo y lechada">Tile &amp; grout</span><span data-es="Ventanas">Windows</span><span data-es="Lavado a presión">Pressure washing</span></div></div>
+
+<section id="services"><div class="wrap">
+  <div class="sh rv"><span class="kick" data-es="Lo que limpiamos">What we clean</span><h2 data-es="Para su casa o su negocio">For your home or your business</h2></div>
+  <div class="toggle rv" role="group" aria-label="Residential or commercial"><button type="button" data-v="res" aria-pressed="true" data-es="Residencial">Residential</button><button type="button" data-v="com" aria-pressed="false" data-es="Comercial">Commercial</button></div>
+  <div class="svc-grid" id="svcs">
+    <article class="svc rv" data-v="res"><img src="img/carpet1.webp" alt="Carpet being deep cleaned in a living room" loading="lazy"><div class="t"><h3 data-es="Alfombras">Carpet cleaning</h3><p data-es="Limpieza profunda que quita manchas, mugre y olores.">Deep cleaning that lifts stains, dirt and odors.</p></div></article>
+    <article class="svc rv" data-v="res"><img src="img/sofa.webp" alt="Clean white sectional sofa after upholstery cleaning" loading="lazy"><div class="t"><h3 data-es="Sofás y muebles">Upholstery</h3><p data-es="Sofás, sillas y seccionales como nuevos.">Sofas, chairs and sectionals brought back to life.</p></div></article>
+    <article class="svc rv" data-v="res"><img src="img/tile3.webp" alt="Tile floor after tile and grout cleaning" loading="lazy"><div class="t"><h3 data-es="Azulejo y lechada">Tile &amp; grout</h3><p data-es="Pisos de cocina y baño, con la lechada limpia otra vez.">Kitchen and bathroom floors, grout clean again.</p></div></article>
+    <article class="svc rv" data-v="com" hidden><img src="img/office.webp" alt="Office carpet being cleaned around a conference table" loading="lazy"><div class="t"><h3 data-es="Alfombras de oficina">Office carpets</h3><p data-es="Oficinas, salas de reuniones y espacios de trabajo.">Offices, meeting rooms and workspaces.</p></div></article>
+    <article class="svc rv" data-v="com" hidden><img src="img/tile.webp" alt="Rotary tool cleaning a commercial tile floor" loading="lazy"><div class="t"><h3 data-es="Pisos comerciales">Commercial floors</h3><p data-es="Azulejos y pisos de alto tráfico, con equipo profesional.">High-traffic tile and floors, with professional equipment.</p></div></article>
+    <article class="svc rv" data-v="com" hidden><div class="ic" aria-hidden="true">🪟</div><div class="t"><h3 data-es="Ventanas y lavado a presión">Windows &amp; pressure washing</h3><p data-es="Vidrieras, entradas y aceras siempre presentables.">Storefront glass, entrances and walkways kept presentable.</p></div></article>
+  </div>
+</div></section>
+
+<section class="story" id="reviews"><div class="wrap grid">
+  <img class="rv" src="img/sofa.webp" alt="Upholstered sofa looking like new" loading="lazy">
+  <div>
+    <span class="kick rv" data-es="Lo que dicen los clientes · 4.9 ★">What clients say · 4.9 ★</span>
+    <blockquote class="rv" data-es="Mi hija encontró colorante de comida en gel y pintó nuestro sofá con los dedos. Llamé a varias compañías de limpieza de muebles… No puedo decir suficientes cosas buenas de Mr. Peña.">My daughter somehow found gel food coloring and decided to finger paint our couch with it. I called several upholstery cleaning companies… I cannot say enough good things about Mr. Peña!</blockquote>
+    <cite class="rv" data-es="Reseña de Google">Google review</cite>
+    <div class="mini rv">
+      <p><b>★★★★★</b><span data-es="&quot;Le devolvió la vida a mi sofá. Parece casi nuevo. Profesional y detallista.&quot;">"He brought new life to my upholstered sofa. It looks almost brand new. Professional and detail-oriented."</span></p>
+      <p><b>★★★★★</b><span data-es="&quot;Puntuales, profesionales y un trabajo excelente. Su precio es inmejorable.&quot;">"Prompt, professional and excellent work. His pricing is unbeatable."</span></p>
+    </div>
+  </div>
+</div></section>
+
+<section id="work"><div class="wrap">
+  <div class="sh rv"><span class="kick" data-es="Trabajos reales">Real jobs</span><h2 data-es="Nuestro trabajo">Our work</h2></div>
+  <div class="gal">
+    <figure class="rv"><img src="img/carpet2.webp" alt="Carpet cleaning in a commercial space" loading="lazy"><figcaption data-es="Alfombra">Carpet</figcaption></figure>
+    <figure class="rv"><img src="img/tile2.webp" alt="Tile floor cleaning next to wood paneling" loading="lazy"><figcaption data-es="Azulejo">Tile</figcaption></figure>
+    <figure class="rv"><img src="img/office.webp" alt="Office carpet cleaning" loading="lazy"><figcaption data-es="Oficina">Office</figcaption></figure>
+    <figure class="rv"><img src="img/carpet1.webp" alt="Living room carpet cleaning" loading="lazy"><figcaption data-es="Casa">Home</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="gear" style="background:var(--sky)"><div class="wrap grid">
+  <img class="rv" src="img/truck.webp" alt="Truck-mounted cleaning machine inside the Mr. Peña's van" loading="lazy">
+  <div class="rv">
+    <span class="kick" data-es="Equipo profesional">Professional equipment</span>
+    <h2 data-es="La máquina viene en la van">The cleaning power comes in the van</h2>
+    <p data-es="Usamos un sistema montado en el camión, mucho más potente que una máquina portátil: más succión, agua más caliente y alfombras que secan más rápido.">We use a truck-mounted system, far more powerful than a portable machine: stronger suction, hotter water and carpets that dry faster.</p>
+  </div>
+</div></section>
+
+<section class="flood"><div class="wrap">
+  <div class="rv"><h2 data-es="¿Se inundó? <span>Llame 24/7.</span>">Water damage? <span>Call 24/7.</span></h2><p data-es="Tuberías rotas, sótanos inundados, alfombras mojadas: venimos a sacar el agua y salvar lo que se pueda.">Burst pipes, flooded basements, soaked carpets: we come to get the water out and save what we can.</p></div>
+  <div class="rv"><a class="btn" href="tel:+19787949485"><svg aria-hidden="true"><use href="#ph"/></svg>(978) 794-9485</a></div>
+</div></section>
+
+<section class="quote" id="quote"><div class="wrap grid">
+  <div class="side">
+    <span class="kick rv" data-es="Cotización gratis">Free quote</span>
+    <h2 class="rv" data-es="¿Qué necesita limpiar?">What needs cleaning?</h2>
+    <p class="rv" data-es="Llene esto y se abre WhatsApp con su mensaje listo. Puede mandar fotos de las manchas para una cotización más rápida.">Fill this in and WhatsApp opens with your message ready. Send photos of the stains for a faster quote.</p>
+    <div class="addr rv"><span>18 S Boylston St, Lawrence, MA 01843</span><span><span data-es="Llame o escriba:">Call or text:</span> <a href="tel:+19787949485">(978) 794-9485</a></span></div>
+    <div class="map rv"><iframe title="Map: Mr. Peña's Services, Lawrence MA" src="https://www.google.com/maps?q=18+S+Boylston+St,+Lawrence,+MA+01843&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  </div>
+  <form class="card rv" id="form" novalidate>
+    <div class="f"><span data-es="Para">For</span><div class="chips" role="group">
+      <label><input type="radio" name="who" value="Home" checked><span data-es="Casa">Home</span></label>
+      <label><input type="radio" name="who" value="Business"><span data-es="Negocio">Business</span></label></div></div>
+    <div class="f"><span data-es="Servicio">Service</span><div class="chips" role="group">
+      <label><input type="checkbox" name="s" value="Carpet" checked><span data-es="Alfombras">Carpet</span></label>
+      <label><input type="checkbox" name="s" value="Upholstery"><span data-es="Muebles">Upholstery</span></label>
+      <label><input type="checkbox" name="s" value="Tile & grout"><span data-es="Azulejo">Tile &amp; grout</span></label>
+      <label><input type="checkbox" name="s" value="Windows"><span data-es="Ventanas">Windows</span></label>
+      <label><input type="checkbox" name="s" value="Pressure washing"><span data-es="Lavado a presión">Pressure washing</span></label>
+      <label><input type="checkbox" name="s" value="Water damage"><span data-es="Daño por agua">Water damage</span></label></div></div>
+    <div class="two">
+      <label class="f"><span data-es="Su nombre">Your name</span><input name="name" autocomplete="name"></label>
+      <label class="f"><span data-es="Ciudad">Town</span><input name="town" placeholder="Lawrence"></label>
+    </div>
+    <label class="f"><span data-es="Detalles (opcional)">Details (optional)</span><textarea name="note" data-es-ph="Ej.: 3 cuartos y una escalera, sofá en L con manchas" placeholder="e.g. 3 bedrooms and stairs, L-shaped sofa with stains"></textarea></label>
+    <p class="err" id="err" role="alert"></p>
+    <button class="btn" type="submit" style="width:100%"><svg aria-hidden="true"><use href="#wa"/></svg><span data-es="Enviar por WhatsApp">Send on WhatsApp</span></button>
+    <p class="fine" data-es="Su mensaje llega directo a nuestro WhatsApp.">Your message goes straight to our WhatsApp.</p>
+  </form>
+</div></section>
+
+<footer><b>Mr. Peña's Services</b><span data-es="Limpieza residencial y comercial · Totalmente asegurado · Hablamos español">Residential &amp; commercial cleaning · Fully insured · Hablamos español</span><br>18 S Boylston St, Lawrence, MA · <a href="tel:+19787949485" style="color:#fff">(978) 794-9485</a></footer>
+<div class="dock"><a class="call" href="tel:+19787949485" data-es="Llamar">Call</a><a class="bk" href="#quote" data-es="Cotización gratis">Free quote</a></div>
+
+<script>
+(() => {
+  const WA = '19787949485';
+  let lang = 'en';
+  try { lang = localStorage.getItem('pena-lang') || 'en'; } catch (e) {}
+  const nodes = [...document.querySelectorAll('[data-es]')];
+  nodes.forEach(n => { n.dataset.en = n.innerHTML; });
+  const ph = document.querySelector('[data-es-ph]'); ph.dataset.enPh = ph.placeholder;
+  function setLang(l) {
+    lang = l; document.documentElement.lang = l;
+    nodes.forEach(n => { n.innerHTML = l === 'es' ? n.dataset.es : n.dataset.en; });
+    ph.placeholder = l === 'es' ? ph.dataset.esPh : ph.dataset.enPh;
+    document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.l === l));
+    try { localStorage.setItem('pena-lang', l); } catch (e) {}
+  }
+  document.querySelectorAll('.lang button').forEach(b => b.onclick = () => setLang(b.dataset.l));
+  setLang(lang);
+  // residential / commercial toggle
+  document.querySelectorAll('.toggle button').forEach(b => b.onclick = () => {
+    document.querySelectorAll('.toggle button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    document.querySelectorAll('#svcs .svc').forEach(s => { s.hidden = s.dataset.v !== b.dataset.v; s.classList.add('in'); });
+  });
+  // reveal + menu
+  const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .06 }) : null;
+  document.querySelectorAll('.rv').forEach(el => io ? io.observe(el) : el.classList.add('in'));
+  const btn = document.getElementById('menuBtn'), drop = document.getElementById('drop'), scrim = document.getElementById('scrim'), head = document.querySelector('header.top');
+  const close = () => { drop.classList.remove('open'); scrim.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); };
+  btn.onclick = () => { const o = !drop.classList.contains('open'); drop.style.top = (head.getBoundingClientRect().bottom + 6) + 'px'; drop.classList.toggle('open', o); scrim.classList.toggle('open', o); btn.setAttribute('aria-expanded', o); };
+  scrim.onclick = close; drop.querySelectorAll('a').forEach(a => a.onclick = close);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  // quote -> WhatsApp
+  const f = document.getElementById('form'), err = document.getElementById('err');
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    const svcs = [...f.querySelectorAll('input[name=s]:checked')].map(i => lang === 'es' ? i.nextElementSibling.textContent : i.value);
+    if (!f.name.value.trim() || !svcs.length) { err.textContent = lang === 'es' ? 'Escriba su nombre y elija al menos un servicio.' : 'Please add your name and pick at least one service.'; err.classList.add('show'); return; }
+    err.classList.remove('show');
+    const who = f.querySelector('input[name=who]:checked');
+    const L = lang === 'es'
+      ? ['Hola Mr. Peña, quisiera una cotización.', 'Para: ' + who.nextElementSibling.textContent, 'Servicio: ' + svcs.join(', '), 'Nombre: ' + f.name.value.trim()]
+      : ["Hi Mr. Peña's, I'd like a free quote.", 'For: ' + who.value, 'Service: ' + svcs.join(', '), 'Name: ' + f.name.value.trim()];
+    if (f.town.value.trim()) L.push((lang === 'es' ? 'Ciudad: ' : 'Town: ') + f.town.value.trim());
+    if (f.note.value.trim()) L.push((lang === 'es' ? 'Detalles: ' : 'Details: ') + f.note.value.trim());
+    window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(L.join('\n')), '_blank', 'noopener');
+  });
+})();
+</script>
+
+<!-- jb-credit -->
+<div class="jb-credit" style="all:revert;display:block;margin:0;padding:14px 16px calc(14px + env(safe-area-inset-bottom,0px));background:#111;color:#cfcfcf;font:500 13px/1.5 system-ui,-apple-system,Segoe UI,Arial,sans-serif;text-align:center;position:relative;z-index:1">Website designed by <b style="color:#fff;white-space:nowrap">Joseph Bortey</b> · <a href="tel:+233265768743" style="color:#fff;text-decoration:underline;white-space:nowrap">026 576 8743</a></div>
+<style>@media (max-width:760px){.jb-credit{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))!important}}</style>
+<img src="https://hits.sh/josephbortey2003-droid.github.io/mrpena-demo.svg" alt="" width="1" height="1" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none" referrerpolicy="no-referrer" loading="eager">
+</body>
+</html>
